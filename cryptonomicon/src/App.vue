@@ -83,7 +83,7 @@
               </button>
             </div>
           </dl>
-          <hr class="w-full border-t border-gray-600 my-4" />
+          <hr  class="w-full border-t border-gray-600 my-4" />
         </template>
 
         <section class="relative">
