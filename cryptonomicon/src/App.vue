@@ -141,7 +141,8 @@ export default {
       ticker: "doge",
       tickers: [],
       sel: null,
-      graph: []
+      graph: [],
+      listCoin: []
     };
   },
   methods: {
@@ -150,13 +151,13 @@ export default {
         name: this.ticker,
         price: "-"
       };
+
       this.tickers.push(currentTicker);
       setInterval(async () => {
         const f = await fetch(
           `https://min-api.cryptocompare.com/data/price?fsym=${currentTicker.name}&tsyms=USD&api_key=42b034ef95208488452517577f44c7fdb290163dc22d2d69e5500bed0a5ea222`
         );
         const data = await f.json();
-        // console.log(data);
         currentTicker.price = data.USD;
         this.tickers.find(t => t.name === currentTicker.name).price =
           data.USD > 1 ? data.USD.toFixed(2) : data.USD.toPrecision(2);
